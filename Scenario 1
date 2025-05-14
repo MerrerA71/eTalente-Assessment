@@ -1,0 +1,33 @@
+/*Question 1 */
+SELECT 
+    c.CustomerID,
+    c.CustomerName,
+    SUM(o.Order_Amount) AS TotalOrderAmount
+FROM 
+    Customers c, Orders o 
+WHERE
+ c.CustomerID = o.CustomerID
+GROUP BY 
+    c.CustomerID, c.CustomerName;
+
+/*Result*/
+CUSTOMERID	CUSTOMERNAME	TOTALORDERAMOUNT
+1	          John Smith	  550
+2	          Jane Doe	    400
+
+/* Question 2 */
+SELECT DISTINCT
+    c.CustomerID,
+    c.CustomerName,
+    c.City
+FROM 
+    Customers c, Orders o 
+WHERE
+    c.CustomerID = o.CustomerID
+AND 
+    o.Order_Amount > 200;
+
+/* Result*/
+CUSTOMERID	CUSTOMER_NAME	CITY
+2	          Jane Doe	    Los Angeles
+1	          John Smith	  New York
